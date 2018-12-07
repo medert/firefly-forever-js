@@ -51,16 +51,40 @@ let numberOfQuotes = (name) => {
 }
 
 let whoSaidThis = (quote) => {
-
-}
+  let i = 0;
+  quotes.forEach((elem)=>{
+    if (elem.includes(quote)){
+      index = i;
+    }
+    i++;
+  });
+  name = crewMembers[index];
+  return name;
+};
 
 let longestQuote = (name) => {
-
-}
+  index = crewMembers.indexOf(name);
+  arrQuotes = quotes[index];
+  let temp = '';
+  arrQuotes.forEach((elem) =>{
+    if (elem.length > temp.length){
+      temp = elem;
+    }
+  });
+  return temp;
+};
 
 let averageQuoteLength = (name) => {
-
-}
+  let index = crewMembers.indexOf(name);
+  let arr = quotes[index];
+  total = 0;
+  index = 0;
+  arr.forEach((item)=>{
+    total += item.length;
+    index++;
+  });
+  return Math.ceil(total / index) ;
+};
 
 // 1. How many quotes does Mal have? Write a function called `numberOfQuotes` that takes one argument, the name of a character. This function should return the number of quotes that character has. If your function is set up properly you should be able to call `numberOfQuotes("Mal")` and `numberOfQuotes("Zoe")`, and get the Expected Output below:
 
@@ -73,23 +97,23 @@ console.log(`Zoe has ${numberOfQuotes("Zoe")} quotes.`)
 // 2. Which character said `"I am a leaf on the wind. Watch how I soar."`? Write a function called `whoSaidThis` that takes one argument, the quote. This function should return the name of the person who said the quote. If your function is set up properly you should be able to call `whoSaidThis("I am a leaf on the wind. Watch how I soar.")` and `whoSaidThis("Let's be bad guys.")` and get the Expected Output below:
 
 // Wash says: I am a leaf on the wind. Watch how I soar.
-let washQuote = "I am a leaf on the wind. Watch how I soar."
-console.log(`${whoSaidThis(washQuote)} says: ${washQuote}`)
+let washQuote = "I am a leaf on the wind. Watch how I soar.";
+console.log(`${whoSaidThis(washQuote)} says: ${washQuote}`);
 
 // Jayne says: Let's be bad guys.
-let jayneQuote = "Let's be bad guys."
-console.log(`${whoSaidThis(jayneQuote)} says: ${jayneQuote}`)
+let jayneQuote = "Let's be bad guys.";
+console.log(`${whoSaidThis(jayneQuote)} says: ${jayneQuote}`);
 
 // 3. What is River's longest quote? Write a function called `longestQuote` that takes one argument, the name of the character. This function should return the character's longest quote. If your function is set up properly you should be able to call `longestQuote("River")` and `longestQuote("Book")` and get the Expected Output below:
 
 // River's longest quote is: Now they see the sky and they remember what they are.
-console.log(`Rivers's longest quote is: ${longestQuote("River")}`)
+console.log(`Rivers's longest quote is: ${longestQuote("River")}`);
 
 // Book's longest quote is:  A government is a body of people, usually, notably ungoverned.
-console.log(`Book's longest quote is: ${longestQuote("Book")}`)
+console.log(`Book's longest quote is: ${longestQuote("Book")}`);
 
 
 // 4. What is Zoe's average quote length? Write a function called `averageQuoteLength` that takes one argument, the name of the character. This function should return the average length of all their quotes. If your function is set up properly you should be able to call `averageQuoteLength("Zoe")` and get the Expected Output below:
 
 // The average length of Zoe's quotes is: 40.
-console.log(`The average length of Zoe's quotes is: ${averageQuoteLength("Zoe")}`)
+console.log(`The average length of Zoe's quotes is: ${averageQuoteLength("Zoe")}`);
